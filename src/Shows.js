@@ -39,6 +39,8 @@ class Shows extends Component {
           result._embedded.events.forEach(element => {
             if (element.dates.status.code === "rescheduled") {
               let date = new Date(element.dates.start.dateTime);
+              console.log(element.id);
+              show["eventId"] = element.id;
               show["day"] = date.getDate();
               show["city"] = element._embedded.venues["0"].city.name;
               show["venue"] = element._embedded.venues["0"].name;
@@ -83,6 +85,7 @@ class Shows extends Component {
               day={show.day}
               city={show.city}
               venue={show.venue}
+              eventId={show.eventId}
             />
           ))}
         </main>

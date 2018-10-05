@@ -18,7 +18,7 @@ class Show extends Component {
     let lessMore;
 
     if (isShow) {
-      showing = <Info day={this.props.day} city={this.props.city} />;
+      showing = <Info day={this.props.day} city={this.props.city} venue={this.props.venue} eventId={this.props.eventId}/>;
       lessMore = "Less info";
     } else {
       showing = <Overview day={this.props.day} city={this.props.city} />;
@@ -34,7 +34,7 @@ class Show extends Component {
               icon={faInfoCircle}
               onClick={this.toggleInfo}
             />
-            <div className="lessMore">{lessMore}</div>
+            {/* <div className="lessMore">{lessMore}</div> */}
           </div>
         </a>
         {showing}
@@ -48,10 +48,6 @@ class Show extends Component {
     });
   };
 
-  // replace whitespace with dashes and make all characters lowercase
-  processCity = city => {
-    return city.replace(/\s+/g, "-").toLowerCase();
-  };
 }
 
 export default Show;
