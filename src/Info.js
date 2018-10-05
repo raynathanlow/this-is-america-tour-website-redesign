@@ -3,8 +3,8 @@ import React, { Component } from "react";
 class Info extends Component {
   render() {
     return (
-      <div className="heading">
-          <h1>Info</h1>
+      <div className="info">
+          <div>December {this.props.day}</div> 
       </div>
     );
   }

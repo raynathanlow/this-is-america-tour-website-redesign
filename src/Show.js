@@ -13,31 +13,30 @@ class Show extends Component {
   }
 
   render() {
-    var isShow = this.state.showInfo;
+    let isShow = this.state.showInfo;
     let showing;
+    let lessMore;
 
     if (isShow) {
-      showing = <Info />;
+      showing = <Info day={this.props.day} city={this.props.city} />;
+      lessMore = "Less info";
     } else {
-      showing = (
-        <Overview
-          date={this.props.date}
-          city={this.props.city}
-          onClick={this.toggleInfo}
-        />
-      );
+      showing = <Overview day={this.props.day} city={this.props.city} />;
+      lessMore = "More info";
     }
 
     return (
       <div className="show">
-        <div className="info">
-          <FontAwesomeIcon
-            className="info-icon"
-            icon={faInfoCircle}
-            onClick={this.toggleInfo}
-          />
-        </div>
-
+        <a href="#">
+          <div className="more-info">
+            <FontAwesomeIcon
+              className="info-icon"
+              icon={faInfoCircle}
+              onClick={this.toggleInfo}
+            />
+            <div className="lessMore">{lessMore}</div>
+          </div>
+        </a>
         {showing}
       </div>
     );
