@@ -6,17 +6,26 @@ class Heading extends Component {
     if (this.props.city == "Inglewood") {
       city = "Los Angeles (Inglewood)";
     }
+    if (this.props.city == "Glendale") {
+      city = "Phoenix (Glendale)"
+    }
     return (
       <div className="heading">
         <div className="dayCity">
           <div className="date">December {this.props.day}</div>
-          <div>{city}</div>
+          <div className="city">{city}</div>
         </div>
 
-        <div>{this.props.venue}</div>
+        <div><a href={"https://www.google.com/maps/search/?api=1&query=" + this.replaceWhitespace(this.props.venue, "+") + "+" + this.replaceWhitespace(this.props.city, "+")}>{this.props.venue}</a></div>
+        <div>Special Guest: {this.props.specialGuest}</div>
       </div>
     );
   }
+
+  // replace whitespace with dashes and make all characters lowercase
+  replaceWhitespace = (text, character) => {
+    return text.replace(/\s+/g, character).toLowerCase();
+  };
 }
 
 export default Heading;

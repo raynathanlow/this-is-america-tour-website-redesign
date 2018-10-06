@@ -8,7 +8,8 @@ class Info extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      url: ""
+      url: "",
+      specialGuest: ""
     };
   }
 
@@ -22,9 +23,16 @@ class Info extends Component {
       .then(response => response.json())
       .then(
         result => {
+          let url;
+          if (this.props.city == "Denver") {
+            url = "https://www.altitudetickets.com/events/detail/childish-gambino";
+          } else {
+            url = result.url;
+          }
           this.setState({
             isLoaded: true,
-            url: result.url
+            url: url,
+            specialGuest: result._embedded.attractions[1].name
           });
         },
         error => {
@@ -37,7 +45,7 @@ class Info extends Component {
   }
 
   render() {
-    const { error, isLoaded, url } = this.state;
+    const { error, isLoaded, url, specialGuest } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -50,16 +58,22 @@ class Info extends Component {
             day={this.props.day}
             city={this.props.city}
             venue={this.props.venue}
+            specialGuest={specialGuest}
           />
           <Tickets url={url} />
           <div
             className="infoBg"
-            style={{ backgroundImage: `url(images/rogers-arena.jpg)` }}
+            style={{ backgroundImage: `url(images/` + this.replaceWhitespace(this.props.venue, "-") + `.jpg)` }}
           />
         </div>
       );
     }
   }
+
+  // replace whitespace with dashes and make all characters lowercase
+  replaceWhitespace = (text, character) => {
+    return text.replace(/\s+/g, character).toLowerCase();
+  };
 }
 
 export default Info;

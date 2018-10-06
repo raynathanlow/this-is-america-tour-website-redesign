@@ -6,7 +6,7 @@ class Overview extends Component {
       <div className="overview">
         <img
           className={
-            "svg " + this.replaceWhitespaceWithDash(this.props.city) + "-" + this.props.day
+            "svg " + this.replaceWhitespace(this.props.city, "-") + "-" + this.props.day
           }
           src={"images/" + this.props.day + ".svg"}
           alt={this.props.day}
@@ -16,8 +16,8 @@ class Overview extends Component {
   }
 
   // replace whitespace with dashes and make all characters lowercase
-  replaceWhitespaceWithDash = text => {
-    return text.replace(/\s+/g, "-").toLowerCase();
+  replaceWhitespace = (text, character) => {
+    return text.replace(/\s+/g, character).toLowerCase();
   };
 }
 

@@ -24,17 +24,20 @@ main {
 
 .more-info {
   position: absolute;
-  right: 1em;
-  bottom: 1em;
+  /* left: 1em; */
+  bottom: 0.5em;
   /* color: white; */
   font-size: 1.1em;
   display: flex;
+  width: 100%;
   align-items: center;
+  justify-content: space-between;
   font-family: "Open Sans Condensed", -apple-system, BlinkMacSystemFont,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   z-index: 1;
+  padding: 0 1.5rem;
 }
 
 .more-info * {
@@ -46,11 +49,7 @@ main {
 }
 
 .info-icon:hover {
-  color: #8a0e00;
-}
-
-.lessMore {
-  margin-left: 5px;
+  color: #b80000;
 }
 
 .shows {
@@ -100,7 +99,8 @@ main {
 }
 
 .show:hover {
-  /* background-color: #2a2a2a; */
+  /* color: #b80000;
+  background-color: #2a2a2a; */
 }
 
 .info {
@@ -110,7 +110,11 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 1.5rem;
+  padding: 1.0rem;
+}
+
+.info div {
+  margin-bottom: 0.5rem;
 }
 
 .infoBg {
@@ -123,11 +127,16 @@ main {
   opacity: 0.28;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .date {
   color: #b80000;
   font-size: 1.7rem;
+}
+
+.city {
+  font-size: 1.29rem;
 }
 
 .tickets a {
@@ -139,4 +148,8 @@ main {
   color: black;
   text-shadow: -1px -1px 0 #b80000, 1px -1px 0 #b80000, -1px 1px 0 #b80000,
     1px 1px 0 #b80000;
+}
+
+.tickets a:hover {
+  text-decoration: underline;
 }

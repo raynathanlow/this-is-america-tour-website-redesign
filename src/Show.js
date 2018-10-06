@@ -27,8 +27,8 @@ class Show extends Component {
 
     return (
       <div className="show">
-        <a href="#">
           <div className="more-info">
+            <div>Rescheduled</div>
             <FontAwesomeIcon
               className="info-icon"
               icon={faInfoCircle}
@@ -36,7 +36,6 @@ class Show extends Component {
             />
             {/* <div className="lessMore">{lessMore}</div> */}
           </div>
-        </a>
         {showing}
       </div>
     );
