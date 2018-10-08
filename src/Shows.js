@@ -51,8 +51,8 @@ class Shows extends Component {
           });
 
           // sort events based on original dates
-          shows = shows.sort(function(a, b) {
-            return order.indexOf(a.day) > order.indexOf(b.day);
+          shows = shows.sort(function (a, b) {
+            return order.indexOf(a.day) > order.indexOf(b.day) || -(order.indexOf(a.day) < order.indexOf(b.day));
             //for the sake of recent versions of Google Chrome use:
             //return a.key.charCodeAt(0) > b.key.charCodeAt(0); or return a.key.charCodeAt(0) - b.key.charCodeAt(0);
           });
@@ -76,10 +76,13 @@ class Shows extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return (
+        <div className="loading-shows">Loading shows...</div>
+      );
     } else {
       return (
-        <main className="shows">
+
+        <div className="shows">
           {shows.map(show => (
             <Show
               key={show.day}
@@ -89,7 +92,7 @@ class Shows extends Component {
               eventId={show.eventId}
             />
           ))}
-        </main>
+        </div>
       );
     }
   }
