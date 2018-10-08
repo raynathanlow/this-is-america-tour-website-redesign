@@ -51,8 +51,8 @@ class Info extends Component {
     } else if (!isLoaded) {
       // show a picture of donald
       return (
-        <div className="loading">
-          <div className="text">Loading</div>
+        <div className="loading animate-flicker">
+          {/* <div className="text">Loading</div> */}
           <img src="images/loading.jpg" alt="Childish Gambino, with his back to the camera, facing a set of lasers" />
         </div>
       );
