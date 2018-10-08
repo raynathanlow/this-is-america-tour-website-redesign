@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/this-is-america-tour-website-redesign/static/css/main.83b3e0fe.chunk.css"
   },
   {
-    "revision": "524c7c601a2d0e424dc77183ef523cdc",
+    "revision": "c9646a99fd59c5366bb844574e08a778",
     "url": "/this-is-america-tour-website-redesign/index.html"
   }
 ];

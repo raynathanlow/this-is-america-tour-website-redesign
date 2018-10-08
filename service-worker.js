@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/this-is-america-tour-website-redesign/precache-manifest.4b4d49113b0e62676ad1dc2665a0b916.js"
+  "/this-is-america-tour-website-redesign/precache-manifest.78fbf57cf6aa2043418c1e337dd03161.js"
 );
 
 workbox.clientsClaim();
