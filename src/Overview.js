@@ -2,6 +2,13 @@ import React, { Component } from "react";
 
 class Overview extends Component {
   render() {
+    let city = this.props.city;
+    if (this.props.city === "Inglewood") {
+      city = "Los Angeles (Inglewood)";
+    }
+    if (this.props.city === "Glendale") {
+      city = "Phoenix (Glendale)"
+    }
     return (
       <div className="overview">
         <img
@@ -9,7 +16,7 @@ class Overview extends Component {
             "svg " + this.replaceWhitespace(this.props.city, "-") + "-" + this.props.day
           }
           src={"images/" + this.props.day + ".svg"}
-          alt={"Handwriting depicting September 30 Vancouver show that has since been rescheduled to December 7"}
+          alt={"Handwriting depicting " + this.props.originalDate + " " + city + " show that has since been rescheduled to December " + this.props.day}
         />
       </div>
     );

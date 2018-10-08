@@ -33,7 +33,7 @@ class Show extends Component {
       tabbable = -1; // not tabbable when info about show is showing
     }
     else {
-      showing = <Overview day={this.props.day} city={this.props.city} />;
+      showing = <Overview day={this.props.day} city={this.props.city} originalDate={this.props.originalDate} />;
       // lessMore = "More info";
       tabbable = 0; // tabbable because the info is not yet showing
     }

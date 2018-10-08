@@ -44,15 +44,51 @@ class Shows extends Component {
               show["day"] = date.getDate();
               show["city"] = element._embedded.venues["0"].city.name;
               show["venue"] = element._embedded.venues["0"].name;
-              show["specialGuest"] = element._embedded.attractions[1].name
+              show["specialGuest"] = element._embedded.attractions[1].name;
+
+              let originalDate;
+              switch (date.getDate()) {
+                case 16:
+                  originalDate = "September 26";
+                  break;
+                case 11:
+                  originalDate = "September 27";
+                  break;
+                case 7:
+                  originalDate = "September 30";
+                  break;
+                case 12:
+                  originalDate = "October 2";
+                  break;
+                case 17:
+                  originalDate = "October 3";
+                  break;
+                case 15:
+                  originalDate = "October 5";
+                  break;
+                case 4:
+                  originalDate = "October 9";
+                  break;
+                case 2:
+                  originalDate = "October 12";
+                  break;
+                default:
+                  originalDate = "";
+              }
+
+              show["originalDate"] = originalDate;
+
               shows.push(show);
               show = {};
             }
           });
 
           // sort events based on original dates
-          shows = shows.sort(function (a, b) {
-            return order.indexOf(a.day) > order.indexOf(b.day) || -(order.indexOf(a.day) < order.indexOf(b.day));
+          shows = shows.sort(function(a, b) {
+            return (
+              order.indexOf(a.day) > order.indexOf(b.day) ||
+              -(order.indexOf(a.day) < order.indexOf(b.day))
+            );
             //for the sake of recent versions of Google Chrome use:
             //return a.key.charCodeAt(0) > b.key.charCodeAt(0); or return a.key.charCodeAt(0) - b.key.charCodeAt(0);
           });
@@ -76,12 +112,9 @@ class Shows extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return (
-        <div className="loading-shows">Loading shows...</div>
-      );
+      return <div className="loading-shows">Loading shows...</div>;
     } else {
       return (
-
         <div className="shows">
           {shows.map(show => (
             <Show
@@ -90,6 +123,7 @@ class Shows extends Component {
               city={show.city}
               venue={show.venue}
               eventId={show.eventId}
+              originalDate={show.originalDate}
             />
           ))}
         </div>
