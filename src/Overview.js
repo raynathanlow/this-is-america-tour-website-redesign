@@ -9,7 +9,7 @@ class Overview extends Component {
             "svg " + this.replaceWhitespace(this.props.city, "-") + "-" + this.props.day
           }
           src={"images/" + this.props.day + ".svg"}
-          alt={this.props.day}
+          alt={"Handwriting depicting September 30 Vancouver show that has since been rescheduled to December 7"}
         />
       </div>
     );

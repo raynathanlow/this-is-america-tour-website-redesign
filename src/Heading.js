@@ -3,10 +3,10 @@ import React, { Component } from "react";
 class Heading extends Component {
   render() {
     let city = this.props.city;
-    if (this.props.city == "Inglewood") {
+    if (this.props.city === "Inglewood") {
       city = "Los Angeles (Inglewood)";
     }
-    if (this.props.city == "Glendale") {
+    if (this.props.city === "Glendale") {
       city = "Phoenix (Glendale)"
     }
     return (
@@ -16,8 +16,8 @@ class Heading extends Component {
           <div className="city">{city}</div>
         </div>
 
-        <div><a href={"https://www.google.com/maps/search/?api=1&query=" + this.replaceWhitespace(this.props.venue, "+") + "+" + this.replaceWhitespace(this.props.city, "+")}>{this.props.venue}</a></div>
-        <div>Special Guest: {this.props.specialGuest}</div>
+        <div className="venue"><a title={"Find out how to get to " + this.props.venue + " on Google Maps"}target="_blank" rel="noopener noreferrer" href={"https://www.google.com/maps/search/?api=1&query=" + this.replaceWhitespace(this.props.venue, "+") + "+" + this.replaceWhitespace(this.props.city, "+")}>{this.props.venue}</a></div>
+        <div className="specialGuest">Special Guest: {this.props.specialGuest}</div>
       </div>
     );
   }

@@ -24,7 +24,7 @@ class Info extends Component {
       .then(
         result => {
           let url;
-          if (this.props.city == "Denver") {
+          if (this.props.city === "Denver") {
             url = "https://www.altitudetickets.com/events/detail/childish-gambino";
           } else {
             url = result.url;
@@ -50,7 +50,12 @@ class Info extends Component {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       // show a picture of donald
-      return <div>Loading...</div>;
+      return (
+        <div className="loading">
+          <div className="text">Loading</div>
+          <img src="images/loading.jpg" alt="Childish Gambino, with his back to the camera, facing a set of lasers" />
+        </div>
+      );
     } else {
       return (
         <div className="info">
@@ -60,10 +65,11 @@ class Info extends Component {
             venue={this.props.venue}
             specialGuest={specialGuest}
           />
-          <Tickets url={url} />
+          <Tickets url={url} city={this.props.city} day={this.props.day} />
           <div
             className="infoBg"
             style={{ backgroundImage: `url(images/` + this.replaceWhitespace(this.props.venue, "-") + `.jpg)` }}
+            title={"Front view of " + this.props.venue + " venue"}
           />
         </div>
       );
