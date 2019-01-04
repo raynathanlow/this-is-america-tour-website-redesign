@@ -33,7 +33,8 @@ function getPosition(element) {
 
 class App extends Component {
   render() {
-    return <Shows />;
+    // return <Shows />;
+    return false;
   }
 }
 
