@@ -11,10 +11,10 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/this-is-america-tour-website-redesign/precache-manifest.78fbf57cf6aa2043418c1e337dd03161.js"
+  "/this-is-america-tour-website-redesign/precache-manifest.2f9775af6485974bda3e48c3860dcecd.js"
 );
 
 workbox.clientsClaim();
